@@ -1,9 +1,13 @@
 import React from "react";
+import { Layout, Menu } from 'antd';
 import './App.css';
 import Bisection from './components/Bisection';
 import Linear from "./components/Lagrange_Linear";
 import Quadratic from "./components/Lagrange_Quadratic";
 import Polynomial from "./components/Lagrange_Polynomial";
+
+const { SubMenu } = Menu;
+const { Header, Content, Sider, Footer } = Layout;
 
 function App() {
     return (
