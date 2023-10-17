@@ -1,26 +1,28 @@
 import React from "react";
-import { Layout, Menu } from 'antd';
+import { NavBar } from './NavBar';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
-import Bisection from './components/Bisection';
-import Linear from "./components/Lagrange_Linear";
-import Quadratic from "./components/Lagrange_Quadratic";
-import Polynomial from "./components/Lagrange_Polynomial";
 
-const { SubMenu } = Menu;
-const { Header, Content, Sider, Footer } = Layout;
+import Lagrange from "./test/Lagrange";
+import Newton from "./test/Newton";
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-            <p>Root found by Bisection <Bisection /></p>
-            <p>Lagrange Interpolation : Linear <Linear /></p>
-            <p>Lagrange Interpolation : Quadratic <Quadratic /></p>
-            <p>Lagrange Interpolation : Polynomial <Polynomial /></p>
 
-                
-            </header>
+            <BrowserRouter>
+            <NavBar/>
+            <Routes>
+      
+            <Route path='/Lagrange' element={<Lagrange/>}/>
+            <Route path='/Newton' element={<Newton/>}/>
+
+        
+        
+            </Routes>
+            </BrowserRouter>
         </div>
+        
     );
 }
 
