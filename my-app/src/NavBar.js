@@ -1,6 +1,7 @@
 import React from "react";
-import { Navbar,Container,NavDropdown,Nav,Offcanvas,Form,Button} from "react-bootstrap";
-import {Link} from 'react-router-dom';
+import { Navbar,Container,NavDropdown,Nav,Offcanvas,Form,Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import './NavBar.css';
 
 export const NavBar = () =>{
     return (
@@ -8,7 +9,7 @@ export const NavBar = () =>{
           {[false].map((expand) => (
             <Navbar key={expand} bg="dark"variant="dark" expand={expand} className="mb-3">
               <Container fluid>
-                <Navbar.Brand >Numer Project</Navbar.Brand>
+                <Navbar.Brand >Numerical Project</Navbar.Brand>
                 <NavDropdown.Divider />
                 
 
@@ -26,8 +27,16 @@ export const NavBar = () =>{
                         <NavDropdown.Item href="/Lagrange">Lagrange</NavDropdown.Item>
                         <br/>
                         <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item><NavDropdown.Divider />
-                        <br/>
-                        <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item><NavDropdown.Divider />
+                      </NavDropdown>
+            
+                      <NavDropdown
+                        title="Root Of Equation"
+                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                        <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item>
+                        <br />
+                        <NavDropdown.Item href="/FalsePosition">False Position</NavDropdown.Item><NavDropdown.Divider />
+
+
                       </NavDropdown>
 
                     </Nav>

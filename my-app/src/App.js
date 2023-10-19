@@ -3,10 +3,10 @@ import { NavBar } from './NavBar';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
 
-// import Lagrange from "./test/Lagrange";
-import Newton from "./test/Newton";
 import Bisection from "./components/Bisection";
-
+import Newton from "./components/Newton";
+import Lagrange from "./components/Lagrange";
+import FalsePosition from "./components/FalsePosition";
 
 function App() {
     return (
@@ -15,10 +15,16 @@ function App() {
             <BrowserRouter>
             <NavBar/>
             <Routes>
-      
-            {/* <Route path='/Lagrange' element={<Lagrange/>}/> */}
-            <Route path='/Newton' element={<Newton/>}/>
+
             <Route path='/Bisection' element={<Bisection/>}/>
+            <Route path='/Newton' element={<Newton/>}/>
+            <Route path='/Lagrange' element={<Lagrange/>}/>
+            <Route path='/FalsePosition' element={<FalsePosition/>}/>
+            
+
+            
+
+
 
 
         

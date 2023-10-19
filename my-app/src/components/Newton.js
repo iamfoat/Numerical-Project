@@ -14,72 +14,54 @@ const Div = {
   margin: "0 auto",
 };
 
-class Lagrange extends Component{
+class Newton extends Component{
     CalLinear(){
-        var x = [parseFloat(document.getElementById("Inputx1").value),]
         var X1 = parseFloat(document.getElementById("Inputx1").value);
         var Y1 = parseFloat(document.getElementById("Inputy1").value);
         var X2 = parseFloat(document.getElementById("Inputx2").value);
         var Y2 = parseFloat(document.getElementById("Inputy2").value);
         var Xval = parseFloat(document.getElementById("Inputxval").value);
-        var l0,l1,y;
-        l0 = (X2-Xval)/(X2-X1);
-        l1 = (X1-Xval)/(X1-X2);
-        var fx = l0*Y1+l1*Y2;
-        document.getElementById("ans").innerHTML = fx;
+        var c0,c1,y;
+        c0 = Y1;
+        c1 = (Y2-Y1)/(X2-X1);
+        y = c0+c1*(Xval-X1);
+        document.getElementById("ans").innerHTML = y;
     }
 
     CalQuadratic(){
-        var x = [parseFloat(document.getElementById("Inputx1").value),parseFloat(document.getElementById("Inputx2").value),parseFloat(document.getElementById("Inputx3").value)];
-        var y = [parseFloat(document.getElementById("Inputy1").value),parseFloat(document.getElementById("Inputy2").value),parseFloat(document.getElementById("Inputy3").value)];
+        var X1 = parseFloat(document.getElementById("Inputx1").value);
+        var Y1 = parseFloat(document.getElementById("Inputy1").value);
+        var X2 = parseFloat(document.getElementById("Inputx2").value);
+        var Y2 = parseFloat(document.getElementById("Inputy2").value);
+        var X3 = parseFloat(document.getElementById("Inputx3").value);
+        var Y3 = parseFloat(document.getElementById("Inputy3").value);
         var Xval = parseFloat(document.getElementById("Inputxval").value);
-        
-        var L = [];
-        var ans = 0;
-        for (var i = 0; i < x.length; i++) {
-            var sum = 1;
-            for (var j = 0; j < x.length; j++) {
-                if (j == i) {
-                    continue;
-                }
-                sum *= (x[j] - Xval) / (x[j] - x[i]);
+        var c0,c1,c2,y;
 
-            }
-            L[i] = sum * y[i];
-        }
-        for (var i = 0; i < x.length; i++) {
-            ans += L[i];
-        }
-        document.getElementById("ans").innerHTML = ans;
+        c0 = Y1;
+        c1 = (Y2-Y1)/(X2-X1);
+        c2 = (((Y3-Y1)/(X3-X1))-((Y2-Y1)/(X2-X1)))/(X3-X1);
+
+        y = c0+c1*(Xval-X1)+c2*(Xval-X1)*(Xval-X2);
+        document.getElementById("ans").innerHTML = y;
 
     }
 
-    CalPolynomial(){
-        var x = [parseFloat(document.getElementById("Inputx1").value),parseFloat(document.getElementById("Inputx2").value),parseFloat(document.getElementById("Inputx3").value)
-                ,parseFloat(document.getElementById("Inputx4").value),parseFloat(document.getElementById("Inputx5").value)];
-        var y = [parseFloat(document.getElementById("Inputy1").value),parseFloat(document.getElementById("Inputy2").value),parseFloat(document.getElementById("Inputy3").value)
-                ,parseFloat(document.getElementById("Inputy4").value),parseFloat(document.getElementById("Inputy5").value)];
-        var Xval = parseFloat(document.getElementById("Inputxval").value);
+    // CalPolynomial(){
+    //     var X1 = parseFloat(document.getElementById("Inputx1").value);
+    //     var Y1 = parseFloat(document.getElementById("Inputy1").value);
+    //     var X2 = parseFloat(document.getElementById("Inputx2").value);
+    //     var Y2 = parseFloat(document.getElementById("Inputy2").value);
+    //     var X3 = parseFloat(document.getElementById("Inputx3").value);
+    //     var Y3 = parseFloat(document.getElementById("Inputy3").value);
+    //     var X4 = parseFloat(document.getElementById("Inputx4").value);
+    //     var Y4 = parseFloat(document.getElementById("Inputy4").value);
+    //     var X5 = parseFloat(document.getElementById("Inputx5").value);
+    //     var Y5 = parseFloat(document.getElementById("Inputy5").value);
+    //     var Xval = parseFloat(document.getElementById("Inputxval").value);
 
-        var L = [];
-        var ans = 0;
-        for (var i = 0; i < x.length; i++) {
-            var sum = 1;
-            for (var j = 0; j < x.length; j++) {
-                if (j == i) {
-                    continue;
-                }
-                sum *= (x[j] - Xval) / (x[j] - x[i]);
-
-            }
-            L[i] = sum * y[i];
-        }
-        for (var i = 0; i < x.length; i++) {
-            ans += L[i];
-        }
-        document.getElementById("ans").innerHTML = ans;
-
-    }
+   
+    // }
 
     render(){
         return(
@@ -87,6 +69,9 @@ class Lagrange extends Component{
                 <div style={mainDiv}>
                     <div style={Div}>
                         <div>
+                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Linear </Button>
+                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Quadratic </Button>
+                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Polynomial </Button>
                         <br />
             
                         <Form.Control id="Inputx1" type="Number" placeholder="input X1" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
@@ -106,9 +91,8 @@ class Lagrange extends Component{
                         <br />
                         <Form.Control id="Inputxval" type="Number" placeholder="input X value" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
                         <br />
-                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Linear </Button>
-                        <Button onClick={this.CalQuadratic} style={{ width: "10", margin: "0 auto" }}> Quadratic </Button>
-                        <Button onClick={this.CalPolynomial} style={{ width: "10", margin: "0 auto" }}> Polynomial </Button>
+                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Calculate </Button>
+                         <br />
                         <br />
                         <span id="ans"></span>
                         </div>
@@ -118,4 +102,4 @@ class Lagrange extends Component{
         )
     }
 }
-export default Lagrange;
+export default Newton;

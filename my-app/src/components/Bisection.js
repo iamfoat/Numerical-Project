@@ -17,13 +17,11 @@ const Div = {
 class Bisection extends Component{
     
   CalBisection(){
-    const y = document.getElementById("Inputfx").value;
-    const Xl = document.getElementById("Inputxl").value;
-    const Xr = document.getElementById("Inputxr").value;
-    const xl = parseFloat(Xl);
-    const xr = parseFloat(Xr);
-    let scope;
-    let yr, xm, ym;
+    var y = parseFloat(document.getElementById("Inputfx").value);
+    var xl = parseFloat(document.getElementById("Inputxl").value);
+    var xr = parseFloat(document.getElementById("Inputxr").value);
+    var scope;
+    var yr, xm, ym;
 
     xm = (xl + xr) / 2;
     scope = { x: xr };
@@ -50,6 +48,7 @@ class Bisection extends Component{
         <div style={mainDiv}>
           <div style={Div}>
             <div>
+            <h1> Root Of Equation : Bisection </h1>
               <Form.Control id="Inputfx" type="text" placeholder="input f(x)" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
               <br />
               <Form.Control id="Inputxl" type="number" placeholder="input xl" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
@@ -67,5 +66,4 @@ class Bisection extends Component{
     );
   }
 }
-
 export default Bisection;
