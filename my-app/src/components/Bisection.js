@@ -1,76 +1,71 @@
-import { React,Component } from"react";
-import {Button,Form} from"react-bootstrap";
+import React, { Component } from "react";
 import { evaluate } from "mathjs";
+import { Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
 const mainDiv = {
-    display:"flex",
-    width:"100%",
-    margin:"0 auto"
-}
+  display: "flex",
+  width: "100%",
+  margin: "0 auto",
+};
 
 const Div = {
-    width:"100%",
-    margin:"0 auto"
-}
+  width: "100%",
+  margin: "0 auto",
+};
 
 class Bisection extends Component{
-
-    Cal_Bisection(){
-        var XR = document.getElementById("input_xr").value
-        var XL = document.getElementById("input_xl").value;
-        var equation = document.getElementById("Equation").value;
-        var xr = parseFloat(XR);
-        var xl = parseFloat(XL);
-        var scope;
-        var xm, yl, yr, ym;
-        var itermax = 50;
-        var iter = 0;
     
-        do{
-            xm = (xl + xr) / 2;
-            scope = { x:xr };
-            yr = evaluate(equation, scope);
-            scope = { x:xm };
-            ym = evaluate(equation, scope);
-            iter++;
+  CalBisection(){
+    const y = document.getElementById("Inputfx").value;
+    const Xl = document.getElementById("Inputxl").value;
+    const Xr = document.getElementById("Inputxr").value;
+    const xl = parseFloat(Xl);
+    const xr = parseFloat(Xr);
+    let scope;
+    let yr, xm, ym;
 
-            if(ym * yr < 0){
-                xl = xm;
-            }
-            else if(ym * yr > 0){
-                xr = xm;
-            }
-        }
-        while(Math.abs(ym) >= 0.000001);
+    xm = (xl + xr) / 2;
+    scope = { x: xr };
+    yr = evaluate(y, scope);
+    scope = { x: xm };
+    ym = evaluate(y, scope);
 
-        document.getElementById("ans").innerHTML=xm;
+    while (Math.abs(ym) >= 0.000001) {
+      if (ym * yr > 0) {
+        xr = xm;
+      } else {
+        xl = xm;
+      }
+      xm = (xl + xr) / 2;
+      scope = { x: xm };
+      ym = evaluate(y, scope);
     }
+    document.getElementById("ans").innerHTML = xm;
+  }
 
-
-    render(){
-        return(
+  render() {
+    return (
+      <div>
+        <div style={mainDiv}>
+          <div style={Div}>
             <div>
-                <div style={mainDiv}>
-                    <div style={Div}>
-                        <h1>Bisection</h1>
-                        <br/><br/>
-
-                        <div>
-                            <Form.Control id="Equation" type="text" placeholder="input Equation" style={{width:"10%", margin:"0 auto", marginLeft:"10px"}}></Form.Control>
-                            <br/>
-                            <Form.Control id="input_xl" type="number" placeholder="input XL" style={{width:"10%", margin:"0 auto", marginLeft:"10px"}}></Form.Control>
-                            <Form.Control id="input_xr" type="number" placeholder="input XR" style={{width:"10%", margin:"0 auto", marginLeft:"10px"}}></Form.Control>
-                        </div>
-                        <br/>
-
-                        <Button onClick={this.Cal_Bisection} style={{width:"10", margin:"0 auto"}}> Calculate </Button>
-                        <br/><br/>
-                        <h id="ans"></h>
-                    </div>
-                </div>
+              <Form.Control id="Inputfx" type="text" placeholder="input f(x)" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <br />
+              <Form.Control id="Inputxl" type="number" placeholder="input xl" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <br />
+              <Form.Control id="Inputxr" type="number" placeholder="input xr" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <br />
+              <Button onClick={this.CalBisection} style={{ width: "10", margin: "0 auto" }}> Calculate </Button>
+              <br />
+              <br />
+              <h id="ans"></h>
             </div>
-        )
-    }
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Bisection;

@@ -26,6 +26,8 @@ export const NavBar = () =>{
                         <NavDropdown.Item href="/Lagrange">Lagrange</NavDropdown.Item>
                         <br/>
                         <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item><NavDropdown.Divider />
+                        <br/>
+                        <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item><NavDropdown.Divider />
                       </NavDropdown>
 
                     </Nav>
