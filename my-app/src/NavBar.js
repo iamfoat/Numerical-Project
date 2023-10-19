@@ -9,8 +9,8 @@ export const NavBar = () =>{
           {[false].map((expand) => (
             <Navbar key={expand} bg="dark"variant="dark" expand={expand} className="mb-3">
               <Container fluid>
-                <Navbar.Brand >Numerical Project</Navbar.Brand>
-                <NavDropdown.Divider />
+                <Navbar.Brand ></Navbar.Brand>
+                <NavDropdown />
                 
 
                 {/* <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />   */}

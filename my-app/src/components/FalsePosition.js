@@ -18,7 +18,7 @@ const mainDiv = {
     CalFalse(){
         var xl = parseFloat(document.getElementById("Inputxl").value);
         var xr = parseFloat(document.getElementById("Inputxr").value);
-        var y = parseFloat(document.getElementById("Inputfx").value);
+        var y = document.getElementById("Inputfx").value;
         var yl,yr,x1,yx1;
 
     
@@ -29,7 +29,7 @@ const mainDiv = {
         yx1 = evaluate(y,{x:x1});
 
         while(Math.abs(yx1)>=0.000001){
-            if(yx1*yr>0){
+            if(yx1*yr > 0){
                 xr = x1;
             }
             else{
@@ -37,7 +37,7 @@ const mainDiv = {
             }
             x1 = (xl*xr-xr*yl)/(yr-yl);
 
-            yx1 = evaluate(y,{a:x1});
+            yx1 = evaluate(y,{x:x1});
         }
         document.getElementById("ans").innerHTML = x1;
 
