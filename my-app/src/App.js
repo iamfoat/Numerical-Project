@@ -3,8 +3,10 @@ import { NavBar } from './NavBar';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
 
-import Lagrange from "./test/Lagrange";
+// import Lagrange from "./test/Lagrange";
 import Newton from "./test/Newton";
+import Bisection from "./components/Bisection";
+
 
 function App() {
     return (
@@ -14,8 +16,10 @@ function App() {
             <NavBar/>
             <Routes>
       
-            <Route path='/Lagrange' element={<Lagrange/>}/>
+            {/* <Route path='/Lagrange' element={<Lagrange/>}/> */}
             <Route path='/Newton' element={<Newton/>}/>
+            <Route path='/Bisection' element={<Bisection/>}/>
+
 
         
         
