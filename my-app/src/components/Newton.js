@@ -47,21 +47,22 @@ class Newton extends Component{
 
     }
 
-    // CalPolynomial(){
-    //     var X1 = parseFloat(document.getElementById("Inputx1").value);
-    //     var Y1 = parseFloat(document.getElementById("Inputy1").value);
-    //     var X2 = parseFloat(document.getElementById("Inputx2").value);
-    //     var Y2 = parseFloat(document.getElementById("Inputy2").value);
-    //     var X3 = parseFloat(document.getElementById("Inputx3").value);
-    //     var Y3 = parseFloat(document.getElementById("Inputy3").value);
-    //     var X4 = parseFloat(document.getElementById("Inputx4").value);
-    //     var Y4 = parseFloat(document.getElementById("Inputy4").value);
-    //     var X5 = parseFloat(document.getElementById("Inputx5").value);
-    //     var Y5 = parseFloat(document.getElementById("Inputy5").value);
-    //     var Xval = parseFloat(document.getElementById("Inputxval").value);
+    CalPolynomial(){
+        var x = [parseFloat(document.getElementById("Inputx1").value),parseFloat(document.getElementById("Inputx2").value),parseFloat(document.getElementById("Inputx3").value)
+                ,parseFloat(document.getElementById("Inputx4").value),parseFloat(document.getElementById("Inputx5").value)];
+                
+        var y = [parseFloat(document.getElementById("Inputy1").value),parseFloat(document.getElementById("Inputy2").value),parseFloat(document.getElementById("Inputy3").value)
+                ,parseFloat(document.getElementById("Inputy4").value),parseFloat(document.getElementById("Inputy5").value)];
+
+        var Xval = parseFloat(document.getElementById("Inputxval").value);
 
    
-    // }
+    }
+
+
+
+   
+    
 
     render(){
         return(
@@ -102,4 +103,5 @@ class Newton extends Component{
         )
     }
 }
+
 export default Newton;

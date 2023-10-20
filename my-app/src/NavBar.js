@@ -34,7 +34,9 @@ export const NavBar = () =>{
                         id={`offcanvasNavbarDropdown-expand-${expand}`}>
                         <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item>
                         <br />
-                        <NavDropdown.Item href="/FalsePosition">False Position</NavDropdown.Item><NavDropdown.Divider />
+                        <NavDropdown.Item href="/FalsePosition">False Position</NavDropdown.Item>
+                        <br />
+                        <NavDropdown.Item href="/OnePoint">One-Point Iteration</NavDropdown.Item><NavDropdown.Divider />
 
 
                       </NavDropdown>

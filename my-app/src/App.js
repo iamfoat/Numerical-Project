@@ -7,6 +7,7 @@ import Bisection from "./components/Bisection";
 import Newton from "./components/Newton";
 import Lagrange from "./components/Lagrange";
 import FalsePosition from "./components/FalsePosition";
+import OnePoint from "./components/Onepoint";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
             <Route path='/Newton' element={<Newton/>}/>
             <Route path='/Lagrange' element={<Lagrange/>}/>
             <Route path='/FalsePosition' element={<FalsePosition/>}/>
+            <Route path='/OnePoint' element={<OnePoint/>}/>
             
 
             

@@ -49,11 +49,11 @@ class Bisection extends Component{
           <div style={Div}>
             <div>
             <h1> Root Of Equation : Bisection </h1>
-              <Form.Control id="Inputfx" type="text" placeholder="input f(x)" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <Form.Control id="fx" type="text" placeholder="input f(x)" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
               <br />
-              <Form.Control id="Inputxl" type="number" placeholder="input xl" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <Form.Control id="xl" type="number" placeholder="input xl" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
               <br />
-              <Form.Control id="Inputxr" type="number" placeholder="input xr" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <Form.Control id="xr" type="number" placeholder="input xr" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
               <br />
               <Button onClick={this.CalBisection} style={{ width: "10", margin: "0 auto" }}> Calculate </Button>
               <br />
