@@ -7,16 +7,18 @@ export const NavBar = () =>{
     return (
         <>
           {[false].map((expand) => (
-            <Navbar key={expand} bg="dark"variant="dark" expand={expand} className="mb-3">
+            <Navbar key={expand} bg="dark"variant="dark" expand={expand} className="menu">
               <Container fluid>
                 
+                <div class ="head">
                 <Navbar.Brand >Numerical Project</Navbar.Brand>
+                </div>
                 <NavDropdown />
                 
 
                 {/* <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />   */}
 
-                <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`}
+                <Navbar.Offcanvas id={"bar"}
                   aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="end">
 
                   <Offcanvas.Body>

@@ -1,4 +1,22 @@
-  
+  .head{
+    height: 60px;
+    background-color: black;
+    color:white;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: left;
+    padding-top: 10px;
+  }
+  .offcanvas-body{
+    text-align: right;
+  }
+  .navbar-Brand{
+
+
+  }
+  .menu{
+    
+  }
   .navbar-nav a {
     color: #0a0303;
     margin: 0 10px; 
