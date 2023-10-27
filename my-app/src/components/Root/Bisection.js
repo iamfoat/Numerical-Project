@@ -15,14 +15,16 @@ const Div = {
 };
 
 class Bisection extends Component{
-    
+   
+  
   CalBisection(){
-    var y = document.getElementById("Inputfx").value;
-    var xl = parseFloat(document.getElementById("Inputxl").value);
-    var xr = parseFloat(document.getElementById("Inputxr").value);
+    var y = document.getElementById("fx").value;
+    var xl = parseFloat(document.getElementById("xl").value);
+    var xr = parseFloat(document.getElementById("xr").value);
     var scope;
     var yr, xm, ym;
 
+    if(xl!==0 || xr!==0){
     xm = (xl + xr) / 2;
     scope = { x: xr };
     yr = evaluate(y, scope);
@@ -41,6 +43,7 @@ class Bisection extends Component{
     }
     document.getElementById("ans").innerHTML = xm;
   }
+}
 
   render() {
     return (

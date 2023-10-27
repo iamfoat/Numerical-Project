@@ -56,7 +56,7 @@ class Newton extends Component{
 
         var Xval = parseFloat(document.getElementById("Inputxval").value);
 
-   
+        
     }
 
 
@@ -70,10 +70,6 @@ class Newton extends Component{
                 <div style={mainDiv}>
                     <div style={Div}>
                         <div>
-                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Linear </Button>
-                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Quadratic </Button>
-                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Polynomial </Button>
-                        <br />
             
                         <Form.Control id="Inputx1" type="Number" placeholder="input X1" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
                         <Form.Control id="Inputy1" type="Number" placeholder="input Y1" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
@@ -92,7 +88,10 @@ class Newton extends Component{
                         <br />
                         <Form.Control id="Inputxval" type="Number" placeholder="input X value" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
                         <br />
-                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Calculate </Button>
+                        <Button onClick={this.CalLinear} style={{ width: "10", margin: "0 auto" }}> Linear </Button>
+                        <Button onClick={this.CalQuadratic} style={{ width: "10", margin: "0 auto" }}> Quadratic </Button>
+                        <Button onClick={this.CalPolynomial} style={{ width: "10", margin: "0 auto" }}> Polynomial </Button>
+                        <br />
                          <br />
                         <br />
                         <span id="ans"></span>

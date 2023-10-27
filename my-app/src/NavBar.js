@@ -22,24 +22,37 @@ export const NavBar = () =>{
                     <Nav className="justify-content-end flex-grow-1 pe-3">
                     
                       <NavDropdown
-                        title="Interpolation"
-                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                        <NavDropdown.Item href="/Lagrange">Lagrange</NavDropdown.Item>
-                        <br/>
-                        <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item><NavDropdown.Divider />
-                      </NavDropdown>
-            
-                      <NavDropdown
                         title="Root Of Equation"
                         id={`offcanvasNavbarDropdown-expand-${expand}`}>
                         <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item>
                         <br />
                         <NavDropdown.Item href="/FalsePosition">False Position</NavDropdown.Item>
                         <br />
-                        <NavDropdown.Item href="/OnePoint">One-Point Iteration</NavDropdown.Item><NavDropdown.Divider />
-
-
+                        <NavDropdown.Item href="/OnePoint">One-Point Iteration</NavDropdown.Item>
+                        <br />
+                        <NavDropdown.Item href="/NewtonRaphson">Newton Raphson</NavDropdown.Item>
+                        <br />
+                        <NavDropdown.Item href="/Secant">Secant Method</NavDropdown.Item>
                       </NavDropdown>
+
+                      
+                      <NavDropdown
+                        title="Solutions Root Of Equation"
+                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                        <NavDropdown.Item href="/GaussEli">Gasuss Elimination</NavDropdown.Item>
+                        <br/>
+                        <NavDropdown.Item href="/GaussJordan">Gasuss Jordan</NavDropdown.Item>
+                        <br/>   
+                      </NavDropdown>
+
+                      <NavDropdown
+                        title="Interpolation"
+                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                        <NavDropdown.Item href="/Lagrange">Lagrange</NavDropdown.Item>
+                        <br/>
+                        <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item><NavDropdown.Divider />
+                      </NavDropdown>
+
 
                     </Nav>
                     
