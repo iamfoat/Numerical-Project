@@ -15,6 +15,8 @@ const Div = {
 };
 
 class Lagrange extends Component{
+
+    
     CalLinear(){
         var x = [parseFloat(document.getElementById("Inputx1").value),]
         var X1 = parseFloat(document.getElementById("Inputx1").value);

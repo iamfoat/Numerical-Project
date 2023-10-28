@@ -15,6 +15,8 @@ const Div = {
 };
 
 class NewtonRaphson extends Component{
+
+  
     calNewton(){
         var y = document.getElementById("fx").value;
         

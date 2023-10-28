@@ -15,6 +15,8 @@ const mainDiv = {
   };
 
   class FalsePosition extends Component{
+
+    
     CalFalse(){
         var xl = parseFloat(document.getElementById("Inputxl").value);
         var xr = parseFloat(document.getElementById("Inputxr").value);

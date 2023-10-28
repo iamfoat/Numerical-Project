@@ -15,6 +15,8 @@ const Div = {
 };
 
 class OnePoint extends Component{
+
+    
     calOnePoint(){
         var x0 = parseFloat(document.getElementById("Inputx0").value);
         var fx = document.getElementById("Inputfx").value;

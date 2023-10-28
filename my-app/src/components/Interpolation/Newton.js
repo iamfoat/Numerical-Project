@@ -15,6 +15,8 @@ const Div = {
 };
 
 class Newton extends Component{
+
+    
     CalLinear(){
         var X1 = parseFloat(document.getElementById("Inputx1").value);
         var Y1 = parseFloat(document.getElementById("Inputy1").value);

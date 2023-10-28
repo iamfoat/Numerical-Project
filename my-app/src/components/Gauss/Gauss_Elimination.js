@@ -15,6 +15,7 @@ const Div = {
 };
 
 class GaussEli extends Component{
+    
 
     create_matrix_input(){
         var size = document.getElementById("size_of_matrix").value;

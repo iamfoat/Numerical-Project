@@ -15,6 +15,8 @@ const Div = {
 };
 
 class Secant extends Component{
+
+    
     calSecant(){
         var y = document.getElementById("fx").value;
         var x0 = parseFloat(document.getElementById("x0").value);
