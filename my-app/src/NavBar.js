@@ -7,11 +7,19 @@ export const NavBar = () =>{
     return (
         <>
           {[false].map((expand) => (
-            <Navbar key={expand} bg="dark"variant="dark" expand={expand} className="menu">
+            <Navbar key={expand} bg="dark"variant="dark" expand={expand} className="">
               <Container fluid>
                 
                 <div class ="head">
-                <Navbar.Brand >Numerical Project</Navbar.Brand>
+                <Navbar.Brand ></Navbar.Brand>
+                <div class="nav-con">
+                  <div class="logo">
+                    <a href="#">Numerical Project</a>
+                    </div>
+                    {/* <ul class="menu"> */}
+                      <li><a href="#">Menu</a></li>
+                    {/* </ul> */}
+                  </div>
                 </div>
                 <NavDropdown />
                 

@@ -1,11 +1,12 @@
   .head{
     height: 60px;
-    background-color: black;
+    background-color: #F67280;
     color:white;
-    font-weight: bold;
+    justify-content: space-between;
+    /* font-weight: bold;
     font-size: xx-large;
-    text-align: left;
-    padding-top: 10px;
+    text-align: left; */
+    /* padding-top: 10px; */
   }
   .offcanvas-body{
     text-align: right;
@@ -15,7 +16,15 @@
 
   }
   .menu{
+    padding-top: 110px;
+    display: flex;
+    height: 60px;
+    text-align: right;
     
+
+  }
+  .nav-con li{
+    list-style: none;
   }
   .navbar-nav a {
     color: #0a0303;
@@ -29,3 +38,27 @@
     color: #ffcc00; 
   }
   
+  .nav-con{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    font-weight: bold;
+    font-size: xx-large;
+    padding: 5px;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  .menu li{
+    list-style: none;
+  }
+  .nav-con menu{
+    padding-top: 50px;
+  }
+
+  @media screen and (max-width : "360px") {
+    .nav-con{
+      flex-direction: column;
+    }
+  }
