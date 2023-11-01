@@ -141,7 +141,7 @@ class GaussJordan extends Component{
                         <br/>
 
                         <Button onClick={this.calGaussJor}>
-                            submit
+                            Calculate
                         </Button>
                     
                         <br/><br/>

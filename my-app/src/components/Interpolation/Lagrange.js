@@ -112,7 +112,8 @@ class Lagrange extends Component{
                         <Button onClick={this.CalQuadratic} style={{ width: "10", margin: "0 auto" }}> Quadratic </Button>
                         <Button onClick={this.CalPolynomial} style={{ width: "10", margin: "0 auto" }}> Polynomial </Button>
                         <br />
-                        <span id="ans"></span>
+                        <br />
+                        <h id="ans"></h>
                         </div>
                     </div>
                 </div>

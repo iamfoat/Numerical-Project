@@ -15,17 +15,8 @@
 
 
   }
-  .menu{
-    padding-top: 110px;
-    display: flex;
-    height: 60px;
-    /* text-align: right; */
-    
-
-  }
-  .nav-con li{
-    list-style: none;
-  }
+  
+  
   .navbar-nav a {
     color: #0a0303;
     margin: 0 10px; 
@@ -35,7 +26,7 @@
   
 
   .navbar-nav a:hover {
-    color: #ffcc00; 
+    color: palevioletred; 
   }
   
   .nav-con{
@@ -50,11 +41,11 @@
     color: white;
     text-decoration: none;
   }
-  .menu li{
-    list-style: none;
+  .offcanvas-body{
+    text-align: center;
   }
-  .nav-con menu{
-    padding-top: 50px;
+  .Root {
+    
   }
 
   @media screen and (max-width : "360px") {

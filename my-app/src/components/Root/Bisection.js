@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { evaluate } from "mathjs";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import './overall.css';
 
 const mainDiv = {
   display: "flex",
@@ -57,8 +58,10 @@ class Bisection extends Component{
               <Form.Control id="xl" type="number" placeholder="input xl" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
               <br />
               <Form.Control id="xr" type="number" placeholder="input xr" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              
               <br />
-              <Button onClick={this.CalBisection} style={{ width: "10", margin: "0 auto" }}> Calculate </Button>
+              <br />
+              <Button class="btn" onClick={this.CalBisection} style={{ width: "10", margin: "0 auto" }}> Calculate </Button>
               <br />
               <br />
               <h id="ans"></h>

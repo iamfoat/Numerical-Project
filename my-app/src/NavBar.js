@@ -16,10 +16,6 @@ export const NavBar = () =>{
                   <div class="logo">
                     <a href="#">Numerical Project</a>
                     </div>
-                    {/* <ul class="menu"> */}
-                      <li><a href="#">Menu</a></li>
-                      <li><a href="#">Root</a></li>
-                    {/* </ul> */}
                   </div>
                 </div>
                 <NavDropdown />
@@ -33,37 +29,42 @@ export const NavBar = () =>{
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
                     
+                    <a className="Root">
                       <NavDropdown
                         title="Root Of Equation"
-                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                        <NavDropdown.Item href="/Bisection">Bisection</NavDropdown.Item>
+                        id="Root">
+                        <a href="/Bisection">Bisection</a>
                         <br />
-                        <NavDropdown.Item href="/FalsePosition">False Position</NavDropdown.Item>
+                        <a href="/FalsePosition">False Position</a>
                         <br />
-                        <NavDropdown.Item href="/OnePoint">One-Point Iteration</NavDropdown.Item>
+                        <a href="/OnePoint">One-Point Iteration</a>
                         <br />
-                        <NavDropdown.Item href="/NewtonRaphson">Newton Raphson</NavDropdown.Item>
+                        <a href="/NewtonRaphson">Newton Raphson</a>
                         <br />
-                        <NavDropdown.Item href="/Secant">Secant Method</NavDropdown.Item>
+                        <a href="/Secant">Secant Method</a>
                       </NavDropdown>
+                      </a>
 
-                      
+                      <a className="Gauss">
                       <NavDropdown
                         title="Solutions Root Of Equation"
-                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                        <NavDropdown.Item href="/GaussEli">Gasuss Elimination</NavDropdown.Item>
+                        id="Gauss">
+                        <a href="/GaussEli">Gasuss Elimination</a>
                         <br/>
-                        <NavDropdown.Item href="/GaussJordan">Gasuss Jordan</NavDropdown.Item>
+                        <a href="/GaussJordan">Gasuss Jordan</a>
                         <br/>   
                       </NavDropdown>
+                      </a>
 
+                      <a className="Int">
                       <NavDropdown
                         title="Interpolation"
-                        id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                        <NavDropdown.Item href="/Lagrange">Lagrange</NavDropdown.Item>
+                        id="Inter">
+                        <a href="/Lagrange">Lagrange</a>
                         <br/>
-                        <NavDropdown.Item href="/Newton">Newton</NavDropdown.Item><NavDropdown.Divider />
+                        <a href="/Newton">Newton</a>
                       </NavDropdown>
+                      </a>
 
 
                     </Nav>
