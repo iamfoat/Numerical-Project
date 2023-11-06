@@ -129,9 +129,7 @@ class GaussJordan extends Component{
                             <Form.Control id="size_of_matrix" placeholder="enter matrix size" type="number" step="1" style={{width:"11%", margin:"0 auto"}}></Form.Control>
                         </div>
                         <br/><br/>
-                        <Button onClick={this.create_matrix_input}>
-                            OK
-                        </Button>
+                        <Button onClick={this.create_matrix_input}>OK</Button>
 
                         <br/><br/><br/>
 
@@ -140,9 +138,7 @@ class GaussJordan extends Component{
                         </div>
                         <br/>
 
-                        <Button onClick={this.calGaussJor}>
-                            Calculate
-                        </Button>
+                        <Button onClick={this.calGaussJor}>Calculate</Button>
                     
                         <br/><br/>
 

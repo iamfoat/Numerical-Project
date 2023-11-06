@@ -63,6 +63,8 @@ export const NavBar = () =>{
                         <a href="/Lagrange">Lagrange</a>
                         <br/>
                         <a href="/Newton">Newton</a>
+                        <br />
+                        <a hhref ="/Spline">Spline</a>
                       </NavDropdown>
                       </a>
 

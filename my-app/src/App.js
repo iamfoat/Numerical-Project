@@ -12,6 +12,7 @@ import NewtonRaphson from "./components/Root/NewtonRaphson";
 import Secant from "./components/Root/Secant";
 import GaussEli from "./components/Gauss/Gauss_Elimination";
 import GaussJordan from "./components/Gauss/Gauss_Jordan";
+import Spline from "./components/Interpolation/Spilne";
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
             <Route path='/Secant' element={<Secant/>}/>
             <Route path='/GaussEli' element={<GaussEli/>}/>
             <Route path='/GaussJordan' element={<GaussJordan/>}/>
+            <Route path="/Spline" element={<Spline/>}/>
             
             
             
