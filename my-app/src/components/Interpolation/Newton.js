@@ -59,6 +59,7 @@ class Newton extends Component{
         var Xval = parseFloat(document.getElementById("Inputxval").value);
 
         
+        
     }
 
 
