@@ -49,8 +49,11 @@ class Bisection extends Component {
         scope = { x: xm };
         ym = evaluate(equation, scope);
       }
-      var y = equation.replace(/x/g, xm); 
+      
+      var y = equation.replace(/x/g, `(${xm})`);
+      var checkfinal = evaluate(y);      
       this.setState({ equation: y, result: xm, check: `${y} = ${xm}` });
+      this.setState({ equation: y, result: xm, check: `${y} = ${checkfinal}` });
 
       document.getElementById("ans").innerHTML = xm;
     }
