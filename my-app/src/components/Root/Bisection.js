@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { evaluate } from "mathjs";
 import { Button } from "react-bootstrap";
+import Chart from "react-apexcharts";
 import Form from "react-bootstrap/Form";
 import './overall.css';
 
@@ -23,7 +24,17 @@ class Bisection extends Component {
       result: null,
       check: "",
       tableData: [],
-      chartData:{}
+      chartData: {
+        series: [],
+        options: {
+          chart: {
+            id: "bisection-chart",
+          },
+          xaxis: {
+            categories: [],
+          },
+        },
+      },
     };
   }
 
@@ -81,8 +92,14 @@ class Bisection extends Component {
 
       var y = equation.replace(/x/g, `(${xm})`);
       var checkfinal = evaluate(y);      
-      this.setState({ equation: y, result: xm, check: `${y} = ${xm}`,tableData: roundData },{chartData: chartData});
-      this.setState({ equation: y, result: xm, check: `${y} = ${checkfinal}` });
+      this.setState({
+        equation: y,
+        result: xm,
+        check: `${y} = ${xm}`,
+        tableData: roundData,
+        chartData: chartData,
+      });
+            this.setState({ equation: y, result: xm, check: `${y} = ${checkfinal}` });
 
       document.getElementById("ans").innerHTML = xm;
     }
@@ -132,7 +149,12 @@ class Bisection extends Component {
                 ))}
               </tbody>
              </table>
-             
+             <Chart
+        options={this.state.chartData.options}
+        series={this.state.chartData.series}
+        type="line"
+        height={350}
+      />
             </div>
           </div>
         </div>
