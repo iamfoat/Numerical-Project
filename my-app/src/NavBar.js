@@ -42,6 +42,8 @@ export const NavBar = () =>{
                         <a href="/NewtonRaphson">Newton Raphson</a>
                         <br />
                         <a href="/Secant">Secant Method</a>
+                        <br />
+                        <a href="/Sample">Test Jan</a>
                       </NavDropdown>
                       </a>
 

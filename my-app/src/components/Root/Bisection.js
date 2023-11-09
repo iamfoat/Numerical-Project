@@ -22,6 +22,7 @@ class Bisection extends Component {
       equation: "",
       result: null,
       check: "",
+      tableData: [],
     };
   }
 
@@ -33,6 +34,7 @@ class Bisection extends Component {
     var yr, xm, ym;
 
     if (xl !== 0 || xr !== 0) {
+      var roundData = [];
       xm = (xl + xr) / 2;
       scope = { x: xr };
       yr = evaluate(equation, scope);
@@ -48,11 +50,19 @@ class Bisection extends Component {
         xm = (xl + xr) / 2;
         scope = { x: xm };
         ym = evaluate(equation, scope);
+
+        roundData.push({
+          round: roundData.length + 1,
+          xl: xl,
+          xr: xr,
+          xm: xm,
+          ym: ym,
+        });
       }
       
       var y = equation.replace(/x/g, `(${xm})`);
       var checkfinal = evaluate(y);      
-      this.setState({ equation: y, result: xm, check: `${y} = ${xm}` });
+      this.setState({ equation: y, result: xm, check: `${y} = ${xm}`,tableData: roundData });
       this.setState({ equation: y, result: xm, check: `${y} = ${checkfinal}` });
 
       document.getElementById("ans").innerHTML = xm;
@@ -81,6 +91,28 @@ class Bisection extends Component {
               <br />
               <br />
               <div>{this.state.check}</div>
+              <table>
+    <thead>
+      <tr>
+        <th>Round</th>
+        <th>xl</th>
+        <th>xr</th>
+        <th>xm</th>
+        <th>ym</th>
+      </tr>
+    </thead>
+    <tbody>
+      {this.state.tableData.map((data, index) => (
+        <tr key={index}>
+          <td>{data.round}</td>
+          <td>{data.xl}</td>
+          <td>{data.xr}</td>
+          <td>{data.xm}</td>
+          <td>{data.ym}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
             </div>
           </div>
         </div>
