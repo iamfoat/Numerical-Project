@@ -43,7 +43,7 @@ export const NavBar = () =>{
                         <br />
                         <a href="/Secant">Secant Method</a>
                         <br />
-                        <a href="/Sample">Test Jan</a>
+                        <a href="/test">Test Jan</a>
                       </NavDropdown>
                       </a>
 

@@ -31,8 +31,7 @@ function App() {
             <Route path='/Secant' element={<Secant/>}/>
             <Route path='/GaussEli' element={<GaussEli/>}/>
             <Route path='/GaussJordan' element={<GaussJordan/>}/>
-            <Route path="/Spline" element={<Spline/>}/>
-            
+            <Route path='/Spline' element={<Spline/>}/>            
             
             
 

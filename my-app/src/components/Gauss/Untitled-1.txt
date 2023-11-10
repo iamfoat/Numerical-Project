@@ -31,7 +31,7 @@ class Bisection extends Component {
             id: "bisection-chart",
           },
           xaxis: {
-            iter : [],
+            categories: [],
           },
         },
       },
@@ -42,13 +42,16 @@ class Bisection extends Component {
     var equation = document.getElementById("fx").value;
     var xl = parseFloat(document.getElementById("xl").value);
     var xr = parseFloat(document.getElementById("xr").value);
+    var scope;
     var yr, xm, ym;
 
     if (xl !== 0 || xr !== 0) {
       var roundData = [];
       xm = (xl + xr) / 2;
-      yr = evaluate(equation, { x: xr });
-      ym = evaluate(equation,{ x: xm });
+      scope = { x: xr };
+      yr = evaluate(equation, scope);
+      scope = { x: xm };
+      ym = evaluate(equation, scope);
 
       while (Math.abs(ym) >= 0.000001) {
         if (ym * yr > 0) {
@@ -57,7 +60,8 @@ class Bisection extends Component {
           xl = xm;
         }
         xm = (xl + xr) / 2;
-        ym = evaluate(equation, { x: xm });
+        scope = { x: xm };
+        ym = evaluate(equation, scope);
 
         roundData.push({
           round: roundData.length + 1,
@@ -66,14 +70,14 @@ class Bisection extends Component {
           xm: xm,
         });
       }
-        const dataa = roundData.map((data) => data.xm);
-        const iter = roundData.map((data) => data.round);
+        const seriesData = roundData.map((data) => data.xm);
+        const categories = roundData.map((data) => data.round);
 
         const chartData = {
           series: [
             {
               name: "xm",
-              data: dataa,
+              data: seriesData,
             },
           ],
           options: {
@@ -81,7 +85,7 @@ class Bisection extends Component {
               id: "bisection-chart",
             },
             xaxis: {
-              iter: iter,
+              categories: categories,
             },
           },
         };
@@ -95,8 +99,7 @@ class Bisection extends Component {
         tableData: roundData,
         chartData: chartData,
       });
-      
-      this.setState({ equation: y, result: xm, check: `${y} = ${checkfinal}` });
+            this.setState({ equation: y, result: xm, check: `${y} = ${checkfinal}` });
 
       document.getElementById("ans").innerHTML = xm;
     }
@@ -114,6 +117,7 @@ class Bisection extends Component {
               <Form.Control id="xl" type="number" placeholder="input xl" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
               <br />
               <Form.Control id="xr" type="number" placeholder="input xr" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+
               <br />
               <br />
               <Button class="btn" onClick={this.CalBisection} style={{ width: "10", margin: "0 auto" }}> Calculate </Button>
