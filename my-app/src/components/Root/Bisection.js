@@ -3,7 +3,8 @@ import { evaluate } from "mathjs";
 import { Button } from "react-bootstrap";
 import Chart from "react-apexcharts";
 import Form from "react-bootstrap/Form";
-import './overall.css';
+import axios from "axios";
+
 
 const mainDiv = {
   display: "flex",
@@ -31,12 +32,23 @@ class Bisection extends Component {
             id: "bisection-chart",
           },
           xaxis: {
-            iter : [],
+            iter: [],
           },
         },
       },
     };
   }
+  getstartdata = () => {
+    axios.get("http://localhost:3001")
+    .then(res => {
+      const data = res.data;
+      console.log(data);
+      this.setState({ xl: res.data.xl });
+      this.setState({ xr: res.data.xr });
+      this.setState({ E: res.data.equation });
+      console.log("XL: " + res.data.xl + "XR" + res.data + "func" + res.data.func);
+    });
+  };
 
   CalBisection = () => {
     var equation = document.getElementById("fx").value;
@@ -48,7 +60,7 @@ class Bisection extends Component {
       var roundData = [];
       xm = (xl + xr) / 2;
       yr = evaluate(equation, { x: xr });
-      ym = evaluate(equation,{ x: xm });
+      ym = evaluate(equation, { x: xm });
 
       while (Math.abs(ym) >= 0.000001) {
         if (ym * yr > 0) {
@@ -67,7 +79,7 @@ class Bisection extends Component {
         });
       }
         const dataa = roundData.map((data) => data.xm);
-        const iter = roundData.map((data) => data.round);
+        const iterr = roundData.map((data) => data.round);
 
         const chartData = {
           series: [
@@ -81,10 +93,11 @@ class Bisection extends Component {
               id: "bisection-chart",
             },
             xaxis: {
-              iter: iter,
+              iterr: iterr,
             },
           },
         };
+        
 
       var y = equation.replace(/x/g, `(${xm})`);
       var checkfinal = evaluate(y);      
@@ -95,8 +108,7 @@ class Bisection extends Component {
         tableData: roundData,
         chartData: chartData,
       });
-      
-      this.setState({ equation: y, result: xm, check: `${y} = ${checkfinal}` });
+            this.setState({ equation: y, result: xm, check: `${y} = ${checkfinal}` });
 
       document.getElementById("ans").innerHTML = xm;
     }
@@ -108,23 +120,20 @@ class Bisection extends Component {
         <div style={mainDiv}>
           <div style={Div}>
             <div>
-              <h1> Root Of Equation : Bisection </h1>
-              <Form.Control id="fx" type="text" placeholder="input f(x)" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <h1> Bisection </h1>
+              <Form.Control id="fx" type="text" placeholder="input f(x)" ></Form.Control>
               <br />
-              <Form.Control id="xl" type="number" placeholder="input xl" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <Form.Control id="xl" type="number" placeholder="input xl" ></Form.Control>
               <br />
-              <Form.Control id="xr" type="number" placeholder="input xr" style={{ width: "20%", margin: "0 auto" }}></Form.Control>
+              <Form.Control id="xr" type="number" placeholder="input xr" ></Form.Control>
               <br />
-              <br />
-              <Button class="btn" onClick={this.CalBisection} style={{ width: "10", margin: "0 auto" }}> Calculate </Button>
-              <br />
+              <Button class="btn" onClick={this.CalBisection} > Calculate </Button>
               <br />
               <h id="ans"></h>
               <br />
-              <br />
               <div>{this.state.check}</div>
               <br />
-              <br />
+              <Button onClick={this.getstartdata}>API</Button>
               <table>
               <thead>
                 <tr>
@@ -146,11 +155,10 @@ class Bisection extends Component {
               </tbody>
              </table>
              <Chart
-        options={this.state.chartData.options}
-        series={this.state.chartData.series}
-        type="line"
-        height={350}
-      />
+              options={this.state.chartData.options}
+              series={this.state.chartData.series}
+              type="line"
+            />
             </div>
           </div>
         </div>
@@ -159,4 +167,3 @@ class Bisection extends Component {
   }
 }
 export default Bisection;
-
